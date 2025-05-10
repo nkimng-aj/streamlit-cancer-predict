@@ -3,10 +3,13 @@ import pickle as pickle
 import pandas as pd
 import plotly.graph_objects as go
 import numpy as np
-
+import os
 
 def get_clean_data():
-  data = pd.read_csv("data/data.csv") # import dataset
+  # import dataset
+  current_dir = os.path.dirname(__file__)
+  file_path = os.path.join(current_dir, "..", "data", "data.csv")
+  data = pd.read_csv(file_path)
   data.drop(["Unnamed: 32","id"], axis = 1, inplace = True ) # drop ID number column & Unnamed 32 column
   data['diagnosis'] = data['diagnosis'].map({'M': 1, 'B': 0}) # encode the diagnosis variable
 
