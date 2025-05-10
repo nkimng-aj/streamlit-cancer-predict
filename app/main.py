@@ -6,7 +6,7 @@ import numpy as np
 
 
 def get_clean_data():
-  data = pd.read_csv("C:/Users/Administrator/OneDrive - Công ty TNHH Buymed/Desktop/STREAMLIT-APP-CANCER/data/data.csv") # import dataset
+  data = pd.read_csv("data/data.csv") # import dataset
   data.drop(["Unnamed: 32","id"], axis = 1, inplace = True ) # drop ID number column & Unnamed 32 column
   data['diagnosis'] = data['diagnosis'].map({'M': 1, 'B': 0}) # encode the diagnosis variable
 
@@ -74,7 +74,8 @@ def get_scaled_values(input_dict):
         scaled_value = (value - min_val) / (max_val - min_val)
         scaled_dict[key] = scaled_value
 
-    return scaled_dict
+    scaled_data = pd.DataFrame([scaled_dict])
+    return scaled_data
 
 
 def get_radar_chart(input_data):

@@ -44,7 +44,7 @@ def test_model(model):
 
 
 def get_clean_data():
-  data = pd.read_csv("C:/Users/Administrator/OneDrive - Công ty TNHH Buymed/Desktop/STREAMLIT-APP-CANCER/data/data.csv") # import dataset
+  data = pd.read_csv("data/data.csv") # import dataset
   data.drop(["Unnamed: 32","id"], axis = 1, inplace = True ) # drop ID number column & Unnamed 32 column
   data['diagnosis'] = data['diagnosis'].map({'M': 1, 'B': 0}) # encode the diagnosis variable
 
